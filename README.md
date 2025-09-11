@@ -24,3 +24,13 @@
 - Displays all photos the user has marked as favourites.  
 - If there are no favourites yet, the page shows an empty state message with a link back to Home.  
 - The navigation bar shows a counter badge with the number of favourite items.
+
+## Style Guide
+
+### Colors
+- **Primary:** `#F1991F` ![#F1991F](https://via.placeholder.com/15/F1991F/000000?text=+)  
+- **Background:** `#EBE9D9` ![#EBE9D9](https://via.placeholder.com/15/EBE9D9/000000?text=+)  
+- **Text / Black:** `#000001` ![#000001](https://via.placeholder.com/15/000001/000000?text=+)
+
+### Font
+- **Inter** (Google Fonts)
