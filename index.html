@@ -1,78 +1,95 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Picture of the Day</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=stars" >
-  <link rel="stylesheet" href="./style.css" >
+  <!-- Inter text font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Site header / nav -->
   <header class="site-header">
-    <nav class="topnav">
+    <nav class="topnav" aria-label="Main navigation">
       <a class="home-link" href="index.html">HOME</a>
       <ul class="nav-links">
         <li><a href="#">About Us</a></li>
-        <li><a href="#">Favourites</a></li>
-        <li><a href="#">Search</a></li>
+        <li><a href="#favourites-title">Favourites</a></li>
+        <li><a href="#search-label">Search</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Main content -->
   <main id="main" class="container">
     <h1 class="bold">Picture of the Day</h1>
 
-    <!-- Feature -->
-    <div class="feature" id="feature">
-      <div class="feature-media" id="feature-media">
-        <img
-          src=""
-          alt="">
-      </div>    
+    <!-- Feature: picture of the day -->
+    <article class="feature" aria-labelledby="feature-title">
+      <div class="feature-media">
+
+        <!-- Favourite toggle button -->
+        <button class="fav-btn" aria-label="Add to favourites" aria-pressed="false" type="button">
+          <span class="heart-icon" aria-hidden="true">♥</span>
+        </button>
+
+
+
+        <img src="" alt="">
+      </div>
 
       <div class="feature-info">
-        <h2 class="feature-title"></h2>
+        <h2 id="feature-title" class="feature-title"></h2>
+        <p class="feature-date"></p>
         <p class="info"></p>
-        <p><a class="readmore" id="add-btn" href="#">Add to Favourites</a></p>
       </div>
-    </div>
+    </article>
 
     <!-- Search by date -->
-    <div class="search-by-date">
+    <section class="search-by-date" aria-labelledby="search-label">
       <h3 id="search-label">Search by date</h3>
-      <input type="date" class="inputbox">
-    </div>
+      <input type="date" class="inputbox" aria-describedby="search-label">
+    </section>
 
+    <!-- Favourites section -->
+    <section class="favorited" aria-labelledby="favourites-title">
+      <h2 id="favourites-title">Your Favourites</h2>
+      <div class="favouritesbox">
+        <!-- JS will inject favourite items here -->
+      </div>
+    </section>
   </main>
 
-  <!-- Search result with full-width background -->
-  <div class="favorited">
-    <h2>Your Favourites</h2>
-    <div class="favouritesbox">
-      
-    </div>
-  </div>
+  <!-- Lightbox dialog -->
+  <dialog id="lightbox" aria-modal="true" aria-labelledby="lightbox-title">
+  <header class="lightbox-header">
+    <h2 id="lightbox-title" class="visually-hidden">Image preview</h2>
+  </header>
 
-  <!-- Light room / Lightbox modal -->
-<dialog id="lightbox" aria-labelledby="lightbox-title">
-  <button id="lightbox-close" class="iconbtn" aria-label="Close">✕</button>
-  <figure>
-    <img id="lightbox-img" alt="">
-    <figcaption id="lightbox-cap">
-      <strong id="lightbox-title"></strong>
-      <span id="lightbox-desc"></span>
-    </figcaption>
-  </figure>
+  <div class="feature-media">
+    <button class="fav-btn" aria-label="Add to favourites" aria-pressed="false" type="button">
+      <span class="heart-icon" aria-hidden="true">♥</span>
+    </button>
+    <img src="" alt="">
+  </div>
 </dialog>
 
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <small>Copyright@copyright</small>
+    <small>&copy; Copyright</small>
   </footer>
-  <script src="script.js"></script>
+
+  <script src="./script.js"></script>
 </body>
+
 </html>
