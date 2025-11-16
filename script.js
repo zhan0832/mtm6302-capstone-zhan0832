@@ -15,7 +15,7 @@ const $lightboxFavBtn = $lightbox ? $lightbox.querySelector('.fav-btn') : null;
 // localStorage key（collection of favourite image URLs）
 const STORAGE_KEY = 'potd-favs-basic';
 
-// Current main image URL, used to check if it is favourited
+// current image URL being displayed in main area
 let currentSrc = '';
 
 
@@ -191,22 +191,19 @@ function openLightboxWithSrc(src) {
   }
 }
 
-// Click on dialog blank area to close
+// Basic: click outside the image to close the dialog
 if ($lightbox) {
   $lightbox.addEventListener('click', function (event) {
-    // Click inside dialog's feature-media area does not close
-    const box = $lightbox.querySelector('.feature-media');
-    if (!box) return;
-    const rect = box.getBoundingClientRect();
-    const inside =
-      event.clientX >= rect.left &&
-      event.clientX <= rect.right &&
-      event.clientY >= rect.top &&
-      event.clientY <= rect.bottom;
 
-    if (!inside) {
-      try { $lightbox.close(); } catch (e) { $lightbox.removeAttribute('open'); }
+    // If the user clicks directly on the dialog (outside its inner content)
+    if (event.target === $lightbox) {
+      try {
+        $lightbox.close();         // modern browsers
+      } catch (err) {
+        $lightbox.removeAttribute('open'); // fallback
+      }
     }
+
   });
 }
 
@@ -262,3 +259,5 @@ renderFavs();
 if ($dateInput && $dateInput.value) {
   loadImage($dateInput.value);
 }
+
+
